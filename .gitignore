@@ -23,7 +23,9 @@ tutorial/*$
 ^java/solr/server/logs/*
 
 # ignore the downloaded logos
-^python/media/images/logos/*
+^python/media/images/logos48
+^python/media/images/icons
+^python/media/images/badges
 
 # PyCharm project files
 ^.idea/
