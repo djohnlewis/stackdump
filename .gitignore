@@ -4,7 +4,7 @@
 .DS_Store
 
 # ignore any data
-^data/*$
+data
 
 # ignore working bytecode
 \.class$
