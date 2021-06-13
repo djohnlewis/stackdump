@@ -44,7 +44,7 @@ then
         echo "Using Python `which "$PYTHON_CMD"`"
         
         # execution ends here if Python is found
-        PYTHONPATH=$SCRIPT_DIR/python3/packages:$SCRIPT_DIR/python3/src:$PYTHONPATH
+        PYTHONPATH=$SCRIPT_DIR/pyth3/packages:$SCRIPT_DIR/python/src:$PYTHONPATH
         env "PYTHONPATH=$PYTHONPATH" "$PYTHON_CMD" "$@"
         exit $?
     fi

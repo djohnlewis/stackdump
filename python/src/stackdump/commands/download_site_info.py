@@ -30,13 +30,13 @@ sites_path = os.path.join(se_dir, 'Sites.xml')
 script_dir = os.path.dirname(sys.argv[0])
 sites_file_path = os.path.join(script_dir, ''
                                            '../../../../data/')
-# ensure the data directory exists\\\\
+# ensure the data directory exists
 # download the sites RSS file
 
 if not os.path.exists(os.path.dirname(sites_file_path)):
     os.mkdir(os.path.dirname(sites_file_path))
 
-print('Downloading StackExchange sites XML file...', )
+print('Downloading StackExchange sites XML file...')
 # urllib.request.urlretrieve('https://archive.org/download/stackexchange/Sites.xml', sites_file_path)
 print('done.')
 
@@ -80,15 +80,15 @@ with open(sites_path) as f:
             logo_file = os.path.join(logos_dir_path, 'logo-%s.png' % site_key)
             if not os.path.exists(logo_file):
                 print('Downloading logo for %s...' % site_title, urllib.request.urlretrieve(logo_url, logo_file))
-        except:
-            print('Failed download logo for %s...' % site_title)
+        except Exception as e:
+            print('Failed download logo for %s...' % site_title, str(e))
 
         try:
             icon_path = os.path.join(icons_dir_path, 'icon-%s.png' % site_key)
             if not os.path.exists(icon_path):
                 print('Downloading icon for %s...' % site_title, urllib.request.urlretrieve(icon_url, icon_path))
         except:
-            print('Failed download ico for %s...' % site_title)
+            print('Failed download ico for %s...' % site_title, icon_url)
 
         try:
             badge_file = os.path.join(badges_dir_path, 'badge-%s.png' % site_key)
@@ -107,8 +107,7 @@ with open(sites_path) as f:
 
         sites_data = sites_file_path
         for site_file in site_files:
-            dst = sites_data + os.sep + site_key[0] + os.sep + site_key + os.sep + '7z'\
-                  + os.sep + os.path.basename(site_file)
+            dst = sites_data + os.sep + site_key[0] + os.sep + site_key + os.sep + '7z'
             os.makedirs(dst, exist_ok=True)
             os.chdir(dst)
             os.system('tar xzf '+site_file)

@@ -71,7 +71,7 @@ class BaseContentHandler(xml.sax.ContentHandler):
             
             self.conn.query(self.conn.sqlrepr(Insert(self.obj_class.sqlmeta.table, values=props_for_db)))
             
-        except Exception, e:
+        except Exception as e:
             # could not insert this, so ignore the row
             print('Exception: ' + str(e))
             import traceback
@@ -104,7 +104,7 @@ class BadgeContentHandler(BaseContentHandler):
             d['userId'] = int(attrs.get('UserId', 0))
             d['name'] = attrs.get('Name', '')
             d['date'] = attrs.get('Date')
-        except Exception, e:
+        except Exception as e:
             # could not parse this, so ignore the row completely
             self.cur_props = None
             print('Exception: ' + str(e))
