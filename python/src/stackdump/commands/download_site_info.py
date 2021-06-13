@@ -107,7 +107,7 @@ with open(sites_path) as f:
 
         sites_data = sites_file_path
         for site_file in site_files:
-            dst = sites_data + os.sep + site_key[0] + os.sep + site_key + os.sep + '7z'
+            dst = sites_data + os.sep + site_key[0] + os.sep + site_key + os.sep + 'xml'
             os.makedirs(dst, exist_ok=True)
             os.chdir(dst)
             os.system('tar xzf '+site_file)
